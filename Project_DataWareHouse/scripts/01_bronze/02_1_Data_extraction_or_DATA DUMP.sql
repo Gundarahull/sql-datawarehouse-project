@@ -34,7 +34,7 @@ WITH (
 	TABLOCK
 )
 
-select * from bronze.crm_sales_details
+select * from bronze.crm_prd_info
 
 
 
@@ -47,14 +47,6 @@ WITH (
 	FIELDTERMINATOR=',',
 	TABLOCK
 )
-
-ALTER TABLE bronze.erp_cust_az12
-ALTER COLUMN bdate DATE
-ALTER COLUMN gen VARCHAR(100)
-
-
-
-
 
 TRUNCATE TABLE bronze.erp_loc_a101
 BULK INSERT bronze.erp_loc_a101
