@@ -29,9 +29,9 @@ CREATE TABLE silver.crm_sales_details(
 	sls_ord_num VARCHAR(100),
 	sls_prd_key VARCHAR(100),
 	sls_cust_id INTEGER,
-	sls_order_dt DATE,
-	sls_ship_dt DATE,
-	sls_due_at DATE,
+	sls_order_dt VARCHAR(100),
+	sls_ship_dt VARCHAR(100),
+	sls_due_at VARCHAR(100),
 	sls_sales INTEGER,
 	sls_quantity INTEGER,
 	sls_price INTEGER,
@@ -173,6 +173,7 @@ select count(cst_id) from silver.crm_cust_info
 select count(*),cst_id from silver.crm_cust_info group by cst_id having count(*)>1 or cst_id is NULL
 
 select * from silver.crm_cust_info where cst_id IS NOT NULL
+
 
 
 
