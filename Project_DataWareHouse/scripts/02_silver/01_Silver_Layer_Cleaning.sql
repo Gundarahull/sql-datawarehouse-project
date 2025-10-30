@@ -13,9 +13,10 @@ CREATE TABLE silver.crm_cust_info(
 	cst_create_date DATE,
 	dwh_create_date DATETIME DEFAULT GETDATE()
 )
-
+DROP TABLE silver.crm_prd_info
 CREATE TABLE silver.crm_prd_info(
 	prd_id INTEGER,
+	cat_id VARCHAR(100),
 	prd_key VARCHAR(100),
 	prd_nm VARCHAR(100),
 	prd_cost INTEGER,
@@ -29,9 +30,9 @@ CREATE TABLE silver.crm_sales_details(
 	sls_ord_num VARCHAR(100),
 	sls_prd_key VARCHAR(100),
 	sls_cust_id INTEGER,
-	sls_order_dt VARCHAR(100),
-	sls_ship_dt VARCHAR(100),
-	sls_due_at VARCHAR(100),
+	sls_order_dt DATE,
+	sls_ship_dt DATE,
+	sls_due_at DATE,
 	sls_sales INTEGER,
 	sls_quantity INTEGER,
 	sls_price INTEGER,
@@ -60,7 +61,7 @@ CREATE TABLE silver.erp_px_cat_g1v2(
 	dwh_create_date DATETIME DEFAULT GETDATE()
 )
 
-
+-- DATA CLEANING FOR CUST_INFO
 -- STEP 2 : Check
 -- 1. Find any Duplicates
 select COUNT(DISTINCT(cst_id)) as unique_primary_key from bronze.crm_cust_info
@@ -173,7 +174,6 @@ select count(cst_id) from silver.crm_cust_info
 select count(*),cst_id from silver.crm_cust_info group by cst_id having count(*)>1 or cst_id is NULL
 
 select * from silver.crm_cust_info where cst_id IS NOT NULL
-
 
 
 

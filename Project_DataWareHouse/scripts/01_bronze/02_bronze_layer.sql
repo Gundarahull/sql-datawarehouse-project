@@ -28,9 +28,9 @@ CREATE TABLE bronze.crm_sales_details(
 	sls_ord_num VARCHAR(100),
 	sls_prd_key VARCHAR(100),
 	sls_cust_id INTEGER,
-	sls_order_dt VARCHAR(100),
-	sls_ship_dt VARCHAR(100),
-	sls_due_at VARCHAR(100),
+	sls_order_dt DATE,
+	sls_ship_dt DATE,
+	sls_due_at DATE,
 	sls_sales INTEGER,
 	sls_quantity INTEGER,
 	sls_price INTEGER
@@ -64,4 +64,3 @@ CREATE TABLE bronze.erp_px_cat_g1v2(
 	subcat VARCHAR(100),
 	maintenance VARCHAR(100)
 )
-
